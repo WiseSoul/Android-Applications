@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     public String sign = "";
     public String total = "";
-    public Double auxDouble1,auxDouble2;
+    public Double auxDouble1,auxDouble2,auxDouble3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,11 +51,12 @@ public class MainActivity extends AppCompatActivity {
         Button clearbutton = (Button) findViewById(R.id.cButton);
         Button equalbutton = (Button) findViewById(R.id.equalButton);
 
-        //Operations Button
+        //Operations Buttons
         Button plusbutton = (Button) findViewById(R.id.plusButton);
         Button minusbutton = (Button) findViewById(R.id.minusButton);
         Button mulbutton = (Button) findViewById(R.id.mulButton);
         Button divbutton = (Button) findViewById(R.id.divButton);
+        final Button sqrtbutton = (Button) findViewById(R.id.sqrtButton);
 
 
         //Exit Button
@@ -257,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView output = (TextView) findViewById(R.id.editText);
-                output.setText("");
+                output.setText("0");
 
             }
         });
@@ -299,6 +300,13 @@ public class MainActivity extends AppCompatActivity {
                         output.setText(total);                    }
                 }
 
+                if( sign == "sqrt")
+                {
+                    total = Double.toString(Math.sqrt(auxDouble1));
+                    output.setText(total);
+
+                }
+
                 sign = "";
             }
         });
@@ -308,6 +316,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView output = (TextView) findViewById(R.id.editText);
+
+                if(sign == "-" || sign == "*" || sign == "/")
+                {
+                    sign = "+";
+                }
+
                 if( !(output.getText().toString().matches("")) ) {
                     auxDouble1 = Double.parseDouble(output.getText().toString());
                     output.setText("");
@@ -322,6 +336,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView output = (TextView) findViewById(R.id.editText);
+
+                if(sign == "+" || sign == "*" || sign == "/" || sign =="sqrt")
+                {
+                    sign = "-";
+                }
+
                 if( !(output.getText().toString().matches("")) ) {
                     auxDouble1 = Double.parseDouble(output.getText().toString());
                     output.setText("");
@@ -336,6 +356,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView output = (TextView) findViewById(R.id.editText);
+
+                if(sign == "+" || sign == "-" || sign == "/" || sign =="sqrt")
+                {
+                    sign = "*";
+                }
+
                 if( !(output.getText().toString().matches("")) ) {
                     auxDouble1 = Double.parseDouble(output.getText().toString());
                     output.setText("");
@@ -350,12 +376,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TextView output = (TextView) findViewById(R.id.editText);
+
+                if(sign == "-" || sign == "*" || sign == "+" || sign =="sqrt")
+                {
+                    sign = "/";
+                }
+
                 if( !(output.getText().toString().matches("")) ) {
                     auxDouble1 = Double.parseDouble(output.getText().toString());
                     output.setText("");
                     sign = "/";
                 }
 
+            }
+        });
+
+        sqrtbutton.setOnClickListener(new Button.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                TextView output = (TextView) findViewById(R.id.editText);
+                if( !(output.getText().toString().matches("")) ) {
+                    auxDouble1 = Double.parseDouble(output.getText().toString());
+                    sign = "sqrt";
+                }
             }
         });
 
