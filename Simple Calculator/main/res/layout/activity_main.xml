@@ -208,4 +208,15 @@
         android:layout_below="@+id/divButton"
         android:layout_toRightOf="@+id/divButton"
         android:layout_toEndOf="@+id/divButton" />
+
+    <Button
+        android:text="√"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sqrtButton"
+        android:layout_alignBaseline="@+id/mulButton"
+        android:layout_alignBottom="@+id/mulButton"
+        android:layout_toRightOf="@+id/minusButton"
+        android:layout_toEndOf="@+id/minusButton"
+        android:textSize="14sp" />
 </RelativeLayout>
