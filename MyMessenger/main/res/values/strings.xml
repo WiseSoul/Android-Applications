@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">PassMessage</string>
+    <string name="send">Send Message</string>
+    <string name="chooser">Send message...</string>
+
+
+</resources>
