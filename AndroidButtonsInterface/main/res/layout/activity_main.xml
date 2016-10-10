@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+tools:context="com.example.toggleswitchapp.MainActivity"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
+
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="595dp"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+
+
+        <Switch
+            android:id="@+id/switch_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="@string/Son"
+            android:textOff="@string/Soff"
+            android:onClick="OnSwitchClicked"
+            />
+
+
+        <CheckBox
+            android:id="@+id/checkbox_egg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/egg"
+            android:onClick="OnCheckBoxClicked"
+            android:layout_below="@+id/checkbox_sugar"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:id="@+id/checkbox_milk"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/milk"
+            android:onClick="OnCheckBoxClicked"
+            android:layout_marginTop="32dp"
+            android:layout_below="@+id/toggle_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <CheckBox
+            android:id="@+id/checkbox_sugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sugar"
+            android:onClick="OnCheckBoxClicked"
+            android:layout_below="@id/checkbox_milk"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+
+        <RadioGroup android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@+id/checkbox_egg"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="29dp">
+
+            <RadioButton
+                android:id="@+id/radio_cavemen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cavemen"
+                android:onClick="onRadioButtonClicked"  />
+
+            <RadioButton android:id="@+id/radio_astronauts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/astronauts"
+                android:onClick="onRadioButtonClicked"  />
+        </RadioGroup>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/spinner_values"
+            android:layout_below="@+id/radio_group"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp" />
+
+        <ToggleButton
+            android:id="@+id/toggle_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="@string/Ton"
+            android:textOff="@string/Toff"
+            android:onClick="OnToggleClicked"
+            android:layout_marginTop="22dp"
+            android:layout_below="@+id/switch_button"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_action_name"
+            android:contentDescription="@string/starbuzz_logo"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="13dp"
+            android:layout_marginEnd="13dp"
+            android:layout_above="@+id/radio_group" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/ic_action_name"
+            android:text="@string/click_me"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_alignBottom="@+id/toggle_button"
+            android:layout_alignRight="@+id/image_view"
+            android:layout_alignEnd="@+id/image_view"
+            android:onClick="OnClickShowToast"
+            />
+
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+</ScrollView>
