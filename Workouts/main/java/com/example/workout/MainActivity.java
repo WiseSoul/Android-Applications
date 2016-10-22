@@ -50,12 +50,6 @@ public class MainActivity extends AppCompatActivity implements WorkoutListFragme
             startActivity(intent);
         }
     }
-
-    public void OnClickShowCredits(View view)
-    {
-        Intent intent = new Intent(MainActivity.this, CreditsActivity.class);
-        startActivity(intent);
-    }
 }
 
 
