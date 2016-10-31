@@ -20,7 +20,6 @@ public class DetailActivity extends AppCompatActivity {
        WorkoutDetailFragment workoutDetailFragment = (WorkoutDetailFragment)
                getFragmentManager().findFragmentById(R.id.detail_frag);
         // Retrieve the Id of the Workout clicked in the ListFragmentView.
-        // This id was saved in the intent in the variable EXTRA_WORKOUT_ID.
         int workoutId = (int) getIntent().getExtras().get(EXTRA_WORKOUT_ID);
         // Set the workoutId in the workoutDetailFragment to show the details for the selected Workout.
         workoutDetailFragment.setWorkout(workoutId);

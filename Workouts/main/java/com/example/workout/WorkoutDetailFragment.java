@@ -3,6 +3,7 @@ package com.example.workout;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,10 +21,17 @@ public class WorkoutDetailFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //Retrieving the workoutId for when the phone is being rotated
-        if(savedInstanceState != null)
-        {
+        if(savedInstanceState != null) {
             workoutId = savedInstanceState.getLong("workoutId");
         }
+        else {
+            FragmentTransaction ft = getChildFragmentManager().beginTransaction();
+            StopWatchFragment stopWatchFragment = new StopWatchFragment();
+            ft.replace(R.id.stopwatch_container, stopWatchFragment);
+            ft.addToBackStack(null);
+            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+            ft.commit();
+            }
 
             return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
