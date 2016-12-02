@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
     // This is the drawer's layout
     private DrawerLayout drawerLayout;
     // This provides the option to share something
-    private ShareActionProvider shareActionProvider;
+  //  private ShareActionProvider shareActionProvider;
     // This is the button used to open the Drawer
     private ActionBarDrawerToggle drawerToggle;
     // Set currentPosition to 0 by default
@@ -212,13 +212,14 @@ public class MainActivity extends Activity {
         // Inflate the menu;this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main,menu);
 
+        /*// You can either set here the share button or in the onOptionsItemSelected() method but only with a shareActionProvider
         MenuItem menuItem = menu.findItem(R.id.action_share);
         shareActionProvider = (ShareActionProvider) menuItem.getActionProvider();
 
         String getMsg = "Evi e iubita mea.";
 
         setIntent(getMsg.toLowerCase());
-
+        */
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -228,10 +229,13 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_TEXT,text);
+        // Intent used to break the option to permanently use a specific app to send the intent's extra text
+        // It lets the user to always choose what app to share the message with
+        Intent chosenIntent = Intent.createChooser(intent,getString(R.string.intent_chooser));
 
-        shareActionProvider.setShareIntent(intent);
+       // shareActionProvider.setShareIntent(intent);
+        startActivity(chosenIntent);
     }
-
 
     // This method is called when the user clicks on an item in the action bar.
     @Override
@@ -250,6 +254,13 @@ public class MainActivity extends Activity {
             case R.id.action_settings:
                 // Code to run when the settings item is clicked
                 return true;
+            case R.id.action_share:
+                // Code to run when the share button is clicked
+               // shareActionProvider = (ShareActionProvider) item.getActionProvider();
+                String getMsg = "Evi e iubita mea.";
+                setIntent(getMsg);
+                return true;
+
         }
         return super.onOptionsItemSelected(item);
     }

@@ -7,6 +7,7 @@
     <string name="title_top">Top Fragment</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
+    <string name="intent_chooser">Send message..</string>
     <string-array name="pizzas">
         <item>Diavolo</item>
         <item>Funghi</item>
