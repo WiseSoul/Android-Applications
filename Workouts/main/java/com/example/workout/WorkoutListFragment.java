@@ -47,10 +47,8 @@ public class WorkoutListFragment extends ListFragment {
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        
             this.listener = (WorkoutListListener) activity;
-        }
     }
 
 // Tell the listener when an item in the ListView is clicked
