@@ -33,6 +33,7 @@ public class DrinkActivity extends AppCompatActivity {
         // Get the clicked item's id from the intent
         // it needs to be transformed into Integer because get*() function transforms it's parameter to a String.
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_DRINKNO);
+        // Execute the UpdateDrinkActivityTask AsyncTask with passing drinkNo as it's argument
         new UpdateDrinkActivityTask().execute(drinkNo);
     }
 
@@ -41,6 +42,7 @@ public class DrinkActivity extends AppCompatActivity {
 
         // Retrieve the instance of the drinkNo passed from DrinkCategoryActivity
         int drinkNo = (Integer) getIntent().getExtras().get(EXTRA_DRINKNO);
+        // Execute the UpdateDrinkDBTask AsyncTask with passing drinkNo as it's argument
         new UpdateDrinkDBTask().execute(drinkNo);
 }
 
