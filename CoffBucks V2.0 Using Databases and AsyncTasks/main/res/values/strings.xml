@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CoffBucks</string>
+    <string name="starbuzz_logo">CoffBucks Logo</string>
+    <string-array name="options">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Stores</item>
+        <item>Feedback</item>
+    </string-array>
+    <string name="title_activity_drink_category">Drinks</string>
+    <string name="favorite">Favorite</string>
+    <string name="favorites">Your favorite drinks:</string>
+
+</resources>
