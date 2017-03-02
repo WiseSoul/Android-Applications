@@ -37,6 +37,7 @@ public class CoffBucksDatabaseHelper extends SQLiteOpenHelper {
         updateMyDatabase(db, oldVersion, newVersion);
     }
 
+    // This method is used in both onCreate() and onUpgrade methods to update the database based on the current DB version
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion,int newVersion){
         if (oldVersion < 1) {
             db.execSQL("CREATE TABLE DRINK (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
