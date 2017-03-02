@@ -37,29 +37,34 @@ public class CoffBucksDatabaseHelper extends SQLiteOpenHelper {
         updateMyDatabase(db, oldVersion, newVersion);
     }
 
-    // This method is used in both onCreate() and onUpgrade methods to update the database based on the current DB version
+    // Method used to update the database based on the current DB_version
     private void updateMyDatabase(SQLiteDatabase db, int oldVersion,int newVersion){
-        if (oldVersion < 1) {
+        // If the user doesn't have the DB created
+        if (oldVersion < 1) { // Execute the following SQL command :
             db.execSQL("CREATE TABLE DRINK (_id INTEGER PRIMARY KEY AUTOINCREMENT, "
                     + "NAME TEXT, "
                     + "DESCRIPTION TEXT, "
                     + "IMAGE_RESOURCE_ID INTEGER);");
+            // Populate the database with drinks having as attributes : NAME , DESCRIPTION , IMAGE_RESOURCE_ID
             insertDrink(db, "Cappuccino", "Taste now this SUGAR-FREE coffee-based drink!", R.drawable.cappuccino);
             insertDrink(db, "Frappuccino", "The best middle-eastern coffee drink!", R.drawable.frappuccino);
             insertDrink(db, "Moccacino", "Taste now the most popular italian coffee drink!", R.drawable.moccacino);
         }
-
-        if (oldVersion < 2) {
+        // If the DB_Version of the app installed by the user is 1 , update it to Version 2
+        if (oldVersion < 2) { // Alter the table and add the column FAVORITE (used to indicate which drinks the user checked as favorites)
             db.execSQL("ALTER TABLE DRINK ADD COLUMN FAVORITE NUMERIC;");
         }
     }
 
+    // Method used to populate the Database
     private static void insertDrink(SQLiteDatabase db, String name,
                                     String description, int resourceId) {
+        // Container used to store (a) value(s) in (a) column(s).
         ContentValues drinkValues = new ContentValues();
         drinkValues.put("NAME", name);
         drinkValues.put("DESCRIPTION", description);
         drinkValues.put("IMAGE_RESOURCE_ID",resourceId);
+        // Insert the drinkValues into the DRINK table
         db.insert("DRINK", null, drinkValues);
     }
 
