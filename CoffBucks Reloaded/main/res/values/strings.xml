@@ -1,0 +1,22 @@
+<resources>
+
+    <string name="app_name">CoffBucks</string>
+    <string name="starbuzz_logo">CoffBucks Logo</string>
+    <string-array name="options">
+        <item>Coffee-based Drinks</item>
+        <item>Gym Workouts</item>
+        <item>Feedback</item>
+        <item>Calculator</item>
+    </string-array>
+    <string name="title_activity_drink_category">Drinks</string>
+    <string name="favorite">Favorite</string>
+    <string name="favorites">Your favorite coffee-based drinks:</string>
+    <string name="credits">Credits</string>
+    <string name="start">Start</string>
+    <string name="stop">Stop</string>
+    <string name="reset">Reset</string>
+    <string name="send">Send Feedback</string>
+    <string name="chooser">Send message...</string>
+
+
+</resources>
