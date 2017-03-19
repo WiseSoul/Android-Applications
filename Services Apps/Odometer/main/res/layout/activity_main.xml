@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.odometer.MainActivity">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="66dp"
+        android:id="@+id/distance"
+        android:textSize="60sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/reset_button"
+        android:text="@string/reset_button"
+        android:onClick="onClickReset"
+        android:layout_marginTop="110dp"
+        android:layout_below="@+id/distance"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/start_button"
+        android:text="@string/start_button"
+        android:onClick="onClickStart"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/distance"
+        android:layout_alignStart="@+id/reset_button" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stop_button"
+        android:text="@string/stop_button"
+        android:onClick="onClickStop"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/reset_button"
+        android:layout_alignStart="@+id/reset_button" />
+
+</RelativeLayout>
+    </ScrollView>
