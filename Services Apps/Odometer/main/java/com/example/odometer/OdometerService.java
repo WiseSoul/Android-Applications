@@ -78,6 +78,7 @@ public class OdometerService extends Service {
         LocationManager locManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         // Use the LocationManager to request LocationUpdates for the location listener.
         // Everytime we use a service that needs to access specific Android applications,like the GPS in this case,we need to give permissions to our app in AndroidManifest.xml
+        // Also don't forget to declare the service in AndroidManifest.xml
         locManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, // The GPS provider
                                           1000, // Ask for updates every second
                                           1, // The distance in meters
