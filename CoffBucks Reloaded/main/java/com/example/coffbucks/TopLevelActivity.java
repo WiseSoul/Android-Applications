@@ -1,5 +1,6 @@
 package com.example.coffbucks;
 
+import android.Manifest;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -39,6 +41,10 @@ public class TopLevelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_top_level);
 
+        // Ask the user for permissions
+        ActivityCompat.requestPermissions(TopLevelActivity.this,
+                new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                5354);
 
         // Create an OnItemClickListener to listen for clicks on the Options ListView
 
@@ -57,16 +63,21 @@ public class TopLevelActivity extends AppCompatActivity {
                         }
 
                         if(id == 1) {
-                            Intent intent = new Intent(TopLevelActivity.this, MainActivity.class);
+                            Intent intent = new Intent(TopLevelActivity.this,OdometerActivity.class);
                             startActivity(intent);
                         }
 
                         if(id == 2) {
-                            Intent intent = new Intent(TopLevelActivity.this, FeedbackActivity.class);
+                            Intent intent = new Intent(TopLevelActivity.this, MainActivity.class);
                             startActivity(intent);
                         }
 
                         if(id == 3) {
+                            Intent intent = new Intent(TopLevelActivity.this, FeedbackActivity.class);
+                            startActivity(intent);
+                        }
+
+                        if(id == 4) {
                             Intent intent = new Intent(TopLevelActivity.this, CalculatorActivity.class);
                             startActivity(intent);
                         }
@@ -152,7 +163,7 @@ public class TopLevelActivity extends AppCompatActivity {
             // CursorAdapter.changeCursor() not only changes the old cursor with the new one, but also repopulates the list_favorites ListView with the new Cursor.
             // It does this by recreating the adaptor using newFavoritesCursor and then recalling listFavorites.setAdapter(adapter);
             adapter.changeCursor(newFavoritesCursor);
-            // Refresh favoritesCursor with the current favorite drinks in the database
+            // Refresh favoritesCursor with the current favorite drinks in the database(This is done for synchronization for when we re-open the app)
             favoritesCursor = newFavoritesCursor;
 
         } catch (SQLiteException e) { // If there are any syntax errors in the SQL query, a SQLiteException will get caught.
