@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">The Movie App</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Register</string>
+    <string name="password_hint">Password:</string>
+    <string name="email_hint">Email:</string>
+    <string name="register_email">Enter your email address:</string>
+    <string name="register_name">Enter your name:</string>
+    <string name="register_password1">Enter a password:</string>
+    <string name="register_password2">Confirm password:</string>
+    <string name="welcome_string">Welcome to my app!</string>
+    <string name="register_genre">Genre:</string>
+    <string name="stay_logged">Stay signed in</string>
+    <string-array name="movie_types">
+        <item>Adventure</item>
+        <item>Animation</item>
+        <item>Comedy</item>
+        <item>Family</item>
+        <item>Romance</item>
+        <item>Fantasy</item>
+        <item>Science Fiction</item>
+        <item>Mystery</item>
+        <item>Horror</item>
+        <item>Thriller</item>
+        <item>Drama</item>
+        <item>Western</item>
+    </string-array>
+    <string name="set_birthday">Birthday</string>
+    <string-array name="options_list">
+        <item>Account</item>
+        <item>Movies</item>
+        <item>Actors</item>
+        <item>Log Out</item>
+    </string-array>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+
+</resources>
