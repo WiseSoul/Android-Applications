@@ -18,9 +18,6 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
-    Handler handler = new Handler();
-    boolean running1 = true, running2 = true;
-    int counter1 = 0, counter2 = 0;
     static boolean fromActivity = false;
 
     @Override
@@ -40,55 +37,33 @@ public class LoginActivity extends Activity {
             }
             db.close();
             myCursor.close();
-        } catch(SQLiteException e) {
+        } catch (SQLiteException e) {
             Toast toast = Toast.makeText(LoginActivity.this, "Error accessing the database.", Toast.LENGTH_SHORT);
             toast.show();
         }
 
         if (restartSplash) {
-            handler.post(new Runnable() {
+            setContentView(R.layout.layout_splash);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    counter1++;
-                    if (counter1 == 2) {
-                        Intent intent = new Intent(LoginActivity.this, InsideActivity.class);
-                        startActivity(intent);
-                    }
-                    if (counter1 > 2) {
-                        counter1 = 3;
-                    }
-
-                    if (running1) {
-                        setContentView(R.layout.layout_splash);
-                        running1 = false;
-                    }
-
-                    handler.postDelayed(this, 3000);
+                    Intent intent = new Intent(LoginActivity.this, InsideActivity.class);
+                    startActivity(intent);
                 }
-            });
+            }, 3000);
+
+        } else if (!fromActivity) {
+            setContentView(R.layout.layout_splash);
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    setContentView(R.layout.activity_login);
+                }
+            }, 3000);
         }
-        else if (!fromActivity) {
-                    handler = new Handler();
-                    handler.post(new Runnable() {
-                @Override
-                public void run() {
-                    counter2++;
-                    if (counter2 == 2) {
-                        setContentView(R.layout.activity_login);
-                    }
-                    if (counter2 > 2) {
-                        counter2 = 3;
-                    }
-
-                    if (running2) {
-                        setContentView(R.layout.layout_splash);
-                        running2 = false;
-                    }
-
-                    handler.postDelayed(this, 3000);
-                }
-            });
-        } else {
+        else {
             setContentView(R.layout.activity_login);
         }
     }
